@@ -1,10 +1,16 @@
 version: 0.0
 os: linux
 files:
-- source: target/checkers451-0.0.1.jar
-  destination: .
+  - source: target/checkers451-0.0.1.jar
+    destination: /opt/checkers451
+  - source: scripts/shutdown.sh
+    destination: /opt/checkers451/bin
+  - source: scripts/start.sh
+    destination: /opt/checkers451/bin
+  - source: scripts/startup.sh
+    destination: /opt/checkers451/bin
 hooks:
   BeforeInstall:
-  - location: scripts/shutdown.sh
+  - location: /opt/checkers451/bin/shutdown.sh
   ApplicationStart:
-  - location: scripts/start.sh
+  - location: /opt/checkers451/bin/start.sh

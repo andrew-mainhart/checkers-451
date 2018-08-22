@@ -1,4 +1,2 @@
 #!/bin/bash
-cd scripts
-nohup ./startup.sh
-cd ..
+nohup . /opt/checkers451/bin/startup.sh

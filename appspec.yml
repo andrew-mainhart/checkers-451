@@ -11,6 +11,6 @@ files:
     destination: /opt/checkers451/bin
 hooks:
   BeforeInstall:
-  - location: /opt/checkers451/bin/shutdown.sh
+  - location: scripts/shutdown.sh
   ApplicationStart:
-  - location: /opt/checkers451/bin/start.sh
+  - location: scripts/start.sh

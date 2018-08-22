@@ -7,4 +7,4 @@ hooks:
   BeforeInstall:
   - location: scripts/shutdown.sh
   ApplicationStart:
-  - location: scripts/startup.sh
+  - location: scripts/start.sh

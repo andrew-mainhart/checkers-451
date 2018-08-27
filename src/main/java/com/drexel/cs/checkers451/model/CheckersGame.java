@@ -118,7 +118,11 @@ public class CheckersGame extends ChangeDetectable {
         ChipType sc1;
         ChipType sc2;
         int score = 0;
+<<<<<<< HEAD
         if (user == this.player1){
+=======
+        if (user == this.player2){
+>>>>>>> 0130dd2ad3b1678c1c4acf3ff513d50a502698ec
             sc1 = ChipType.red_king;
             sc2 = ChipType.red_single;
         } else{

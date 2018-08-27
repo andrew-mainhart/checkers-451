@@ -50,7 +50,7 @@ public class Room extends ChangeDetectable {
 
     public synchronized void addPlayer(User player){
         if(this.players.contains(player)){
-            throw new RuntimeException("Player already joined to room.");
+            //throw new RuntimeException("Player already joined to room.");
         } else {
             this.players.add(player);
             triggerChange();

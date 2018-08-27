@@ -5,11 +5,13 @@ import java.util.List;
 
 public class Board {
 
+    private final int size;
     private Chip[][] board;
     private List<Chip> chipsOutOfPlay = new ArrayList<>();
 
     public Board(int size){
         this.board = new Chip[size][size];
+        this.size = size;
     }
 
     public Chip getChipAt(Coord coord) {

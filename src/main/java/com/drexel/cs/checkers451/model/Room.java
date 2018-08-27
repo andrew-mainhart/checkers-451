@@ -1,18 +1,19 @@
 package com.drexel.cs.checkers451.model;
 
-import java.security.acl.Owner;
+import com.drexel.cs.checkers451.changes.ChangeDetectable;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class Room extends ChangeDetectable {
 
     private final String code;
-    private Game game;
+    private CheckersGame checkersGame;
 
     private final User owner;
     private final List<User> players = new ArrayList<>();
     private final List<User> observers = new ArrayList<>();
-    private final List<Game> history = new ArrayList<>();
+    private final List<CheckersGame> history = new ArrayList<>();
 
     public Room(String code, User owner) {
         this.code = code;
@@ -23,12 +24,12 @@ public class Room extends ChangeDetectable {
         return code;
     }
 
-    public Game getGame() {
-        return game;
+    public CheckersGame getCheckersGame() {
+        return checkersGame;
     }
 
-    public void setGame(Game game) {
-        this.game = game;
+    public void setCheckersGame(CheckersGame checkersGame) {
+        this.checkersGame = checkersGame;
     }
 
     public List<User> getPlayers() {
@@ -39,7 +40,7 @@ public class Room extends ChangeDetectable {
         return observers;
     }
 
-    public List<Game> getHistory() {
+    public List<CheckersGame> getHistory() {
         return history;
     }
 
@@ -65,12 +66,12 @@ public class Room extends ChangeDetectable {
         }
     }
 
-    public synchronized void setActiveGame(Game game){
-        if(this.game != null){
-            this.history.add(this.game);
+    public synchronized void setActiveGame(CheckersGame checkersGame){
+        if(this.checkersGame != null){
+            this.history.add(this.checkersGame);
         }
-        this.game = game;
-        game.callbackForChange((version, updatedGame) -> {
+        this.checkersGame = checkersGame;
+        checkersGame.callbackForChange((version, updatedGame) -> {
             this.triggerChange();
         });
         this.triggerChange();

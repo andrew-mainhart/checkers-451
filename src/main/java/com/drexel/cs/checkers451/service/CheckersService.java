@@ -1,7 +1,7 @@
 package com.drexel.cs.checkers451.service;
 
 import com.drexel.cs.checkers451.factory.CheckersFactory;
-import com.drexel.cs.checkers451.model.Game;
+import com.drexel.cs.checkers451.model.CheckersGame;
 import com.drexel.cs.checkers451.model.User;
 import org.springframework.stereotype.Service;
 
@@ -14,10 +14,8 @@ public class CheckersService {
         this.checkersFactory = checkersFactory;
     }
 
-    public Game newGame(User u1, User u2){
-        Game ret = this.checkersFactory.makeCheckers();
-        ret.players.add(u1);
-        ret.players.add(u2);
+    public CheckersGame newGame(User u1, User u2){
+        CheckersGame ret = this.checkersFactory.makeCheckers(u1, u2);
         return ret;
     }
 

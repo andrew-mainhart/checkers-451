@@ -1,6 +1,7 @@
 package com.drexel.cs.checkers451.service;
 
-import com.drexel.cs.checkers451.model.Game;
+import com.drexel.cs.checkers451.model.CheckersGame;
+import com.drexel.cs.checkers451.model.Move;
 import com.drexel.cs.checkers451.model.Room;
 import com.drexel.cs.checkers451.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +9,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Service;
 
+import javax.jws.soap.SOAPBinding;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -53,7 +55,7 @@ public class RoomService {
     public Room startNewGame(String code, User authorizingUser){
         Room r = this.getRoomByCode(code);
         if(r.getOwner().equals(authorizingUser)) {
-            Game g = this.checkersService.newGame(r.getPlayers().get(0), r.getPlayers().get(1));
+            CheckersGame g = this.checkersService.newGame(r.getPlayers().get(0), r.getPlayers().get(1));
             r.setActiveGame(g);
         } else {
             throw new RuntimeException("Current user is not room owner.");
@@ -65,6 +67,17 @@ public class RoomService {
         Room r = this.getRoomByCode(code);
         r.blockForChange(currentVersion);
         return r;
+    }
+
+    public Room doGameMove(String code, Move m, User playerMoving){
+        m.setByPlayer(playerMoving);
+        Room r = getRoomByCode(code);
+        if(r.getPlayers().contains(playerMoving)){
+            r.getCheckersGame().doMove(m);
+            return r;
+        } else {
+            throw new RuntimeException("Current user is not player in room.");
+        }
     }
 
     public Room getRoomByCode(String code){

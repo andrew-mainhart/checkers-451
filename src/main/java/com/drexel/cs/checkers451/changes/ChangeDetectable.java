@@ -1,4 +1,4 @@
-package com.drexel.cs.checkers451.model;
+package com.drexel.cs.checkers451.changes;
 
 import java.util.ArrayList;
 import java.util.List;

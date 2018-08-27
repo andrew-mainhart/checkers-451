@@ -66,11 +66,11 @@ public class CheckersGame extends ChangeDetectable {
         int xdiff = next.x - current.x;
         int ydiff = next.y - current.y;
 
-        if(chip.getType().equals(ChipType.black_single) && ydiff <= 0){
+        if(chip.getType().equals(ChipType.red_single) && ydiff <= 0){
             throw new RuntimeException("Black single can only move up.");
         }
 
-        if(chip.getType().equals(ChipType.red_single) && ydiff >= 0){
+        if(chip.getType().equals(ChipType.black_single) && ydiff >= 0){
             throw new RuntimeException("Red single can only move down.");
         }
 
@@ -114,7 +114,33 @@ public class CheckersGame extends ChangeDetectable {
             this.turnUser = this.player1;
         }
     }
+    public int getUserScore(User user){
+        ChipType sc1;
+        ChipType sc2;
+        int score = 0;
+        if (user == this.player1){
+            sc1 = ChipType.red_king;
+            sc2 = ChipType.red_single;
+        } else{
+            sc1 = ChipType.black_king;
+            sc2 = ChipType.black_single;
+        }
+        List<Chip> chips = this.board.getChipsOutOfPlay();
+
+        for(Chip c: chips){
+            if (c.getType() == sc1 || c.getType() == sc2)
+                score++;
+        }
+        return score;
+    }
     public Board getBoard() {
         return board;
+    }
+
+    public int getPlayerOneScore(){
+        return getUserScore(this.player1);
+    }
+    public int getPlayerTwoScore(){
+        return getUserScore(this.player2);
     }
 }

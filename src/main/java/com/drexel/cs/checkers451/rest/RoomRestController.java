@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 @RestController
+@CrossOrigin(origins = "*")
 public class RoomRestController {
 
     @Autowired

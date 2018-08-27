@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 @RestController
+@CrossOrigin(origins = "*")
 public class UserRestController {
 
     @GetMapping(path = "/rest/get-user")

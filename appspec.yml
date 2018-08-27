@@ -12,6 +12,7 @@ files:
 hooks:
   BeforeInstall:
   - location: scripts/shutdown.sh
+    runas: root
   ApplicationStart:
   - location: scripts/start.sh
     runas: root

@@ -73,8 +73,13 @@ public class RoomService {
         m.setByPlayer(playerMoving);
         Room r = getRoomByCode(code);
         if(r.getPlayers().contains(playerMoving)){
-            r.getCheckersGame().doMove(m);
-            return r;
+            if (playerMoving == r.getCheckersGame().getTurnUser()){
+                r.getCheckersGame().doMove(m);
+                r.getCheckersGame().alternateTurnUser();
+                return r;
+            } else{
+                throw new RuntimeException("It is not turn of user submitting move.");
+            }
         } else {
             throw new RuntimeException("Current user is not player in room.");
         }

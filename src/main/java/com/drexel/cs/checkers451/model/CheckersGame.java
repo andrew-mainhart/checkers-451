@@ -13,11 +13,13 @@ public class CheckersGame extends ChangeDetectable {
     private final Board board;
     private final User player1;
     private final User player2;
+    private User turnUser;
 
     public CheckersGame(Board board, User player1, User player2){
         this.board = board;
         this.player1 = player1;
         this.player2 = player2;
+        this.turnUser = player1;
     }
 
     public boolean doMove(Move move){
@@ -102,7 +104,16 @@ public class CheckersGame extends ChangeDetectable {
         }
         return null;
     }
-
+    public User getTurnUser(){
+        return this.turnUser;
+    }
+    public void alternateTurnUser(){
+        if (this.turnUser == this.player1){
+            turnUser = this.player2;
+        } else{
+            this.turnUser = this.player1;
+        }
+    }
     public Board getBoard() {
         return board;
     }

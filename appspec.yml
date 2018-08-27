@@ -14,5 +14,5 @@ hooks:
   - location: scripts/shutdown.sh
     runas: root
   ApplicationStart:
-  - location: scripts/start.sh
+  - location: scripts/startup.sh
     runas: root

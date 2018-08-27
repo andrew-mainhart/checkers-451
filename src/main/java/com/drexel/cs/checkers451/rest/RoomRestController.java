@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 @RestController
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = {"localhost:4200", "http://localhost:8080", "http://localhost:4200", "https://www.checkers451.com", "https://checkers451.com"}, allowCredentials = "true")
 public class RoomRestController {
 
     @Autowired

@@ -6,6 +6,10 @@ public class Chip {
     private int id;
     private User player;
 
+    public Chip(){
+
+    }
+
     public Chip(ChipType type, User player){
         this.type = type;
         this.player = player;

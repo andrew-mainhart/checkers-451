@@ -90,7 +90,7 @@ public class CheckersGame extends ChangeDetectable {
         if(Math.abs(xdiff) == 2){
             int tmpx = xdiff / 2;
             int tmpy = ydiff / 2;
-            Coord spotBeingHoppedOver = new Coord(tmpx, tmpy);
+            Coord spotBeingHoppedOver = new Coord(current.x + tmpx, current.y + tmpy);
 
             if(board.isSpotEmpty(spotBeingHoppedOver)){
                 throw new RuntimeException("You can't hop over an empty spot.");
@@ -120,7 +120,7 @@ public class CheckersGame extends ChangeDetectable {
         ChipType sc1;
         ChipType sc2;
         int score = 0;
-        if (user == this.player1){
+        if (user != this.player1){
             sc1 = ChipType.red_king;
             sc2 = ChipType.red_single;
         } else{

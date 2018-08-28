@@ -61,4 +61,8 @@ public class Board {
     public Chip[][] getBoard() {
         return board;
     }
+
+    public int getSize() {
+        return size;
+    }
 }

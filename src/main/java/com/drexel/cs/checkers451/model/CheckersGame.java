@@ -57,6 +57,15 @@ public class CheckersGame extends ChangeDetectable {
         }
         board.setChipAt(move.getFromSpot(), null);
         board.setChipAt(move.getToSpot(), chipToMove);
+        if(move.getToSpot().y == 0 || move.getToSpot().y == board.getSize() - 1){
+            if(chipToMove.isBlack()){
+                chipToMove.setType(ChipType.black_king);
+            }
+
+            if(chipToMove.isRed()){
+                chipToMove.setType(ChipType.red_king);
+            }
+        }
         this.moves.add(move);
         alternateTurnUser();
         triggerChange();

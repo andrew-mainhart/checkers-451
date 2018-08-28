@@ -5,8 +5,6 @@ files:
     destination: /opt/checkers451
   - source: scripts/shutdown.sh
     destination: /opt/checkers451/bin
-  - source: scripts/start.sh
-    destination: /opt/checkers451/bin
   - source: scripts/startup.sh
     destination: /opt/checkers451/bin
 hooks:

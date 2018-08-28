@@ -67,12 +67,12 @@ public class CheckersGame extends ChangeDetectable {
         int xdiff = next.x - current.x;
         int ydiff = next.y - current.y;
 
-        if(chip.getType().equals(ChipType.red_single) && ydiff <= 0){
-            throw new RuntimeException("Black single can only move up.");
+        if(chip.getType().equals(ChipType.red_single) && ydiff >= 0){
+            throw new RuntimeException("Red single can only move up.");
         }
 
-        if(chip.getType().equals(ChipType.black_single) && ydiff >= 0){
-            throw new RuntimeException("Red single can only move down.");
+        if(chip.getType().equals(ChipType.black_single) && ydiff <= 0){
+            throw new RuntimeException("Black single can only move down.");
         }
 
         if(Math.abs(xdiff) != Math.abs(ydiff)){

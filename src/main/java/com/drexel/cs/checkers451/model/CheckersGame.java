@@ -137,6 +137,14 @@ public class CheckersGame extends ChangeDetectable {
         return board;
     }
 
+    public User getPlayer1() {
+        return player1;
+    }
+
+    public User getPlayer2() {
+        return player2;
+    }
+
     public int getPlayerOneScore(){
         return getUserScore(this.player1);
     }

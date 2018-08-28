@@ -58,6 +58,7 @@ public class CheckersGame extends ChangeDetectable {
         board.setChipAt(move.getFromSpot(), null);
         board.setChipAt(move.getToSpot(), chipToMove);
         this.moves.add(move);
+        alternateTurnUser();
         triggerChange();
         return true;
     }
@@ -107,6 +108,7 @@ public class CheckersGame extends ChangeDetectable {
     public User getTurnUser(){
         return this.turnUser;
     }
+
     public void alternateTurnUser(){
         if (this.turnUser == this.player1){
             turnUser = this.player2;
